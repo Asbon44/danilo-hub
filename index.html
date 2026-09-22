@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danilo’s Hub | Affordable & Non-Expiry Data Bundles</title>
+    <style>
+        /* CSS RESET & VARIABLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #0d6efd;
+            --primary-dark: #0a58ca;
+            --secondary-color: #00d26a;
+            --dark-color: #1a1d20;
+            --light-color: #f8f9fa;
+            --gray-color: #6c757d;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            z-index: 1001;
+        }
+
+        .logo-text {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            font-weight: 800;
+            color: var(--dark-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--primary-color);
+        }
+
+        /* HAMBURGER MENU BUTTON */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark-color);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: white !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            transition: var(--transition);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #0d6efd 0%, #00d26a 100%);
+            color: white;
+            padding: clamp(3rem, 10vw, 6rem) 1.5rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            margin-bottom: 1.2rem;
+            font-weight: 800;
+            line-height: 1.25;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3.5vw, 1.25rem);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            word-wrap: break-word;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-main, .btn-secondary {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            text-align: center;
+            min-width: 160px;
+        }
+
+        .btn-main {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .btn-main:hover {
+            background-color: var(--light-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+
+        /* SECTIONS GENERAL */
+        section {
+            padding: clamp(3rem, 8vw, 5rem) 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: clamp(2rem, 5vw, 3rem);
+        }
+
+        .section-title h2 {
+            font-size: clamp(1.6rem, 5vw, 2.2rem);
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--gray-color);
+            font-size: clamp(0.95rem, 3vw, 1.05rem);
+        }
+
+        /* FEATURES / PACKAGES SECTION */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            padding: clamp(1.5rem, 4vw, 2.5rem) 1.5rem;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+            word-wrap: break-word;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: #eef5ff;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+        }
+
+        .card p {
+            color: var(--gray-color);
+            font-size: 0.95rem;
+        }
+
+        /* ABOUT SECTION */
+        .about-container {
+            background: white;
+            border-radius: 20px;
+            padding: clamp(1.5rem, 5vw, 3rem);
+            box-shadow: var(--card-shadow);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+
+        .priorities-list {
+            list-style: none;
+        }
+
+        .priorities-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .check-mark {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 3rem;
+            width: 100%;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* MOBILE & TABLET MEDIA QUERIES */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: #ffffff;
+                flex-direction: column;
+                justify-content: center;
+                gap: 2rem;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease-in-out;
+                padding: 2rem;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-main, .btn-secondary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <nav class="navbar">
+            <a href="#home" class="logo-container">
+                <!-- Inline SVG Logo for Danilo's Hub -->
+                <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="48" fill="#0D6EFD"/>
+                    <path d="M25 68V32H42C52 32 58 38 58 50C58 62 52 68 42 68H25ZM35 41V59H41C46 59 48 55 48 50C48 45 46 41 41 41H35Z" fill="white"/>
+                    <path d="M55 35C62 30 72 30 78 35" stroke="#00D26A" stroke-width="6" stroke-linecap="round"/>
+                    <path d="M60 47C65 43 72 43 76 47" stroke="#00D26A" stroke-width="6" stroke-linecap="round"/>
+                    <circle cx="68" cy="58" r="4" fill="#00D26A"/>
+                </svg>
+                <span class="logo-text">Danilo’s <span>Hub</span></span>
+            </a>
+
+            <!-- Mobile Hamburger Button -->
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="active" onclick="closeNav(this)">Home</a></li>
+                <li><a href="#about" onclick="closeNav(this)">About Us</a></li>
+                <li><a href="#services" onclick="closeNav(this)">Services</a></li>
+                <li><a href="#contact" class="cta-btn" onclick="closeNav(this)">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HOME / HERO SECTION -->
+    <main id="home">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Stay Connected Anytime, Anywhere</h1>
+                <p>Danilo’s Hub is your trusted internet bundle service provider offering affordable non-expiry data bundles and data-plus-airtime packages.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn-main">View Bundles</a>
+                    <a href="#about" class="btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES / FEATURES SECTION -->
+        <section id="services">
+            <div class="section-title">
+                <h2>Our Data Solutions</h2>
+                <p>Fast, reliable, and convenient packages tailored for your connectivity needs.</p>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon">∞</div>
+                    <h3>Non-Expiry Bundles</h3>
+                    <p>Enjoy affordable internet data packages that never expire. Use your data at your own pace without pressure.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Data + Airtime Combo</h3>
+                    <p>Get combined data and airtime packages designed to keep you connected for browsing and calling simultaneously.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Experience instant automated and quick bundle top-ups so you stay online without interruptions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT US SECTION -->
+        <section id="about">
+            <div class="section-title">
+                <h2>About Danilo’s Hub</h2>
+                <p>Connecting people with fast, reliable, and affordable internet solutions.</p>
+            </div>
+            <div class="about-container">
+                <div class="about-text">
+                    <h3>Your Trusted Connectivity Partner</h3>
+                    <p>At Danilo’s Hub, we understand the importance of seamless digital connection. We are a trusted internet bundle service provider committed to offering seamless data and airtime solutions for individuals, students, and businesses.</p>
+                    <p>Our goal is to eliminate high data costs and strict validity periods by providing non-expiry packages that give you real value for your money.</p>
+                    <ul class="priorities-list">
+                        <li><span class="check-mark">✓</span> Customer Satisfaction</li>
+                        <li><span class="check-mark">✓</span> Quick & Reliable Delivery</li>
+                        <li><span class="check-mark">✓</span> Highly Affordable Prices</li>
+                    </ul>
+                </div>
+                <div class="card" style="background: linear-gradient(135deg, #f8f9fa 0%, #eef5ff 100%);">
+                    <h3>Why Choose Us?</h3>
+                    <p style="margin-top: 1rem;">We make buying internet bundles effortless and stress-free. Whether you need data for streaming, work, or staying in touch with family, Danilo's Hub keeps you online anytime, anywhere.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <p>&copy; <span id="year"></span> Danilo’s Hub. All rights reserved. Your Trusted Internet Service Provider.</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Dynamic copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close Mobile Menu on Click
+        function closeNav(element) {
+            navLinks.classList.remove('active');
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => link.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        // Auto-update active navbar item based on scroll position
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('main, section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
